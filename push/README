@@ -1,0 +1,17 @@
+This is the old unix port of push. 
+
+It should work on any unices supported by plan 9 port(a unix Plan 9 compatibility layer, it's available at http://swtch.com/plan9port/ please install it first)
+
+cd /usr/local
+wget http://swtch.com/plan9port/plan9port.tgz
+tar zxvf plan9port.tgz
+PLAN9=/usr/local/plan9 export PLAN9
+PATH=${PATH}:$PLAN9/bin 
+cd $OLDPWD # go back to this README's directory
+mk # make
+mk install
+# need to put the filters up
+push -c 'echo test |<[1] cat >| cat'
+
+I've also included some interesting tools. 
+mkc osxself

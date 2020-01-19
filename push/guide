@@ -1,0 +1,41 @@
+. 
+mk install
+push -c 'orf=(me f1 orf) irf=(me f2 irf) me f3 test |< me f4 >| me f5'
+mk && ./8.out -c 'orf=(me f2 orf) irf=(me f4 irf) me f1 test |< me f3>| me f5'  >[2=1] | sort | awk 'NR > 2 {print}' | pipedot >/mnt/term/Users/npe/Desktop/pipe.dot
+mk && ./8.out -c ' me echo | me cat'  >[2=1] | sort|  awk 'NR > 3 {print}' | pipedot >/mnt/term/Users/npe/Desktop/pipe.dot
+
+testpush
+Edit ,>grep pid |rcprocs
+rc.acid
+  tree.c
+TODO:
+write a general acid library for finding and manipulating the state of the various rc data structures that I can use to dump what is going on with the system as it runs. 
+
+
+rem=/mnt/term/usr/local/plan9/src/cmd/push/
+@{for(i in *){
+	f=`{basename $i}
+	if(test -e $rem/$f)
+		diff $rem/$f $i
+} >pushdiff
+
+
+gf main
+win
+mkfile
+mk install
+mk regress
+./8.out -r -c 'v=echo $v test' >[2=1] | awk 'NR > 239 { print }'
+
+kill 8.out |rc
+rc(1)
+win acid   -l ./rc.acid ./8.out 
+
+GOAL: code that goes through each call of the procs in the shell. 
+
+testpush
+
+g dot
+
+irf=(echo 5) orf=(echo 2) echo test |< cat >| cat
+

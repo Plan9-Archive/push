@@ -1,0 +1,16 @@
+</$objtype/mkfile
+
+LIB=/$objtype/lib/libfilt.a
+
+CFILES=\
+	filt.c\
+
+HFILES=/sys/include/libc.h
+
+OFILES=${CFILES:%.c=%.$O} 
+
+UPDATE=mkfile\
+	$HFILES\
+	$CFILES\
+
+</sys/src/cmd/mksyslib
